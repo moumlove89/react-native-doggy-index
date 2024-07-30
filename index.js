@@ -30,10 +30,14 @@ class RNDoggyIndex extends Component {
       (status) => {
         switch (status) {
           case 7:
-            this.setState({ visible: true });
+            this.setState({
+              visible: true,
+            });
             break;
           case 8:
-            this.setState({ visible: false });
+            this.setState({
+              visible: false,
+            });
             break;
         }
       },
@@ -52,7 +56,9 @@ class RNDoggyIndex extends Component {
     this.unsubscribe = NetInfo.addEventListener((state) => {
       if (state.isConnected) {
         if (!this.state.isCalledUpdateMethod) {
-          this.setState({ isCalledUpdateMethod: true });
+          this.setState({
+            isCalledUpdateMethod: true,
+          });
           this._handleUpdate();
         }
       }
@@ -74,11 +80,14 @@ class RNDoggyIndex extends Component {
                 this._handleUpdate();
               }
             }}
-          >
-            <Text style={styles.updateText}>点击此处更新</Text>
-          </TouchableOpacity>
+          ></TouchableOpacity>
         ) : (
-          <Spinner isVisible={true} color={"green"} size={60} type={"Circle"} />
+          <Spinner
+            isVisible={true}
+            color={"green"}
+            size={60}
+            type={"Circle"}
+          ></Spinner>
         )}
       </View>
     );
@@ -91,11 +100,6 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-  },
-
-  updateText: {
-    fontSize: 18,
-    color: "green",
   },
 
   magicContainer: {
